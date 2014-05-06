@@ -599,7 +599,7 @@ manipulate(
 ![](figure/Ejercicio_1.png) 
 
 
-2. Hacer una función que use el comando `manipulate` sobre el comando `qplot`para que el usuario elija la especie sobre la cual quiere comparar la longitud (`length`) contra el peso (`weight`), y si quiere el 
+2. Hacer una función que use el comando `manipulate` sobre el comando `qplot`para que el usuario elija la especie sobre la cual quiere comparar la longitud (`length`) contra el peso (`weight`).
 
 <center>
 <img src="figure/Ejercicio_2.png" alt="Ejercicio "/>
