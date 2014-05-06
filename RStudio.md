@@ -135,7 +135,7 @@
 * Desde esta URL podemos descargar el fichero ```ddt.txt```, o usarla directamente:
     * [http://mcolebrook.github.io/CursoRStudio/data/ddt.csv](http://mcolebrook.github.io/CursoRStudio/data/ddt.csv)
 
-<!--
+<!---
 [http://dl.dropboxusercontent.com/u/27980918/RStudio/ddt.txt](http://dl.dropboxusercontent.com/u/27980918/RStudio/ddt.txt)
 --> 
 
@@ -623,4 +623,6 @@ manipulate(
 * [Google's R Style Guide](http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml): guía de estilo de programación en R según Google.
 
 
-<!-- Comentario -->
+<!---
+Comentario 
+-->
