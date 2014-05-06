@@ -133,7 +133,11 @@
     * O desde una URL de una web (__From Web URL…__).
 
 * Desde esta URL podemos descargar el fichero ```ddt.txt```, o usarla directamente:
-    * [http://dl.dropboxusercontent.com/u/27980918/RStudio/ddt.txt](http://dl.dropboxusercontent.com/u/27980918/RStudio/ddt.txt)
+    * [http://mcolebrook.github.io/CursoRStudio/data/ddt.csv](http://mcolebrook.github.io/CursoRStudio/data/ddt.csv)
+
+<!--
+[http://dl.dropboxusercontent.com/u/27980918/RStudio/ddt.txt](http://dl.dropboxusercontent.com/u/27980918/RStudio/ddt.txt)
+--> 
 
 
 # El fichero `ddt.txt`
