@@ -1,5 +1,5 @@
 % Curso introductorio de ![](figure/Rlogo.jpg) </br> Introducción a la interfaz RStudio
-% Profesores: </br> Carlos Pérez González </br> Marcos Colebrook Santamaría </br> (curso de Fundación General ULL) 
+% Profesores: </br> Carlos Pérez González </br> Marcos Colebrook Santamaría </br> (curso de la Fundación General ULL) 
 % 2014
 
 
