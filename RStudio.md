@@ -437,7 +437,7 @@ plot(catfish.weight)
 
 
 ```r
-plot(catfish.weight, col="blue", xlab="Longitud", ylab="Peso", main="Pesos de los catfish")
+plot(catfish.weight, col="blue", xlab="Nº pez", ylab="Peso", main="Pesos de los catfish")
 
 # línea horizontal que marca la media de los pesos
 abline(mean(catfish.weight), 0, col="red", lwd=2)

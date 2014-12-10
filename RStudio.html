@@ -532,7 +532,7 @@ catfish.weight &lt;-<span class="st"> </span>ddt$weight[ddt$species_name ==<span
 <ul>
 <li>En primer lugar, vamos a añadir color, unas nuevas etiquetas en los ejes (<code>xlab</code>, <code>ylab</code>) y el título principal (<code>main</code>), además de una línea en el eje Y que indica la media de los valores.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(catfish.weight, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Longitud&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Peso&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Pesos de los catfish&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(catfish.weight, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Nº pez&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Peso&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Pesos de los catfish&quot;</span>)
 
 <span class="co"># línea horizontal que marca la media de los pesos</span>
 <span class="kw">abline</span>(<span class="kw">mean</span>(catfish.weight), <span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre>
