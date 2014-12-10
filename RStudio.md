@@ -210,7 +210,7 @@ write.csv(ddt, "data/ddt.csv", row.names = FALSE)
 
 # Historial de RStudio
 * Hay tres formas para re-usar los comandos ya tecleados en RStudio:
-    * Pulsando las teclas de fecla arriba o abajo.
+    * Pulsando las teclas de flecha arriba o abajo.
     * Pulsando __Ctrl+&#x25B2;__.
 
 <center>
