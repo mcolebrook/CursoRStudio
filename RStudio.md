@@ -197,9 +197,8 @@
 
 
 ```r
-write.csv(ddt, "data/ddt.csv", row.names = FALSE)
+write.csv(ddt, "data/ddt.csv", row.names=FALSE)
 ```
-
 
 * Podemos ver el fichero creado en el directorio `data`, y haciendo clic sobre él, nos mostrará el contenido:
 
@@ -260,7 +259,6 @@ str(ddt)
 summary(ddt)
 ```
 
-
 * Guardamos este script pulsando el botón del disco (arriba), o en el menú __File > Save__, con el nombre `funciones.R` en el directorio `R` de nuestro proyecto.
 
 <center>
@@ -312,9 +310,8 @@ Resumen(ddt)
 ```
 
 ```
-## Error: no se pudo encontrar la función "Resumen"
+## Error in eval(expr, envir, enclos): no se pudo encontrar la función "Resumen"
 ```
-
 
 * Esto sucede porque la función Resumen no ha sido cargada (_sourced_) al entorno o espacio de trabajo de nuestro proyecto.
 * Para poder usar la función `Resumen(datos)` tenemos que hacer lo siguiente:
@@ -384,17 +381,16 @@ RStudio tiene un panel específico para la visualización de datos (__Plots__) a
 
 ```r
 # cargamos los datos del fichero
-ddt <- read.csv("data/ddt.csv")
+ddt  <- read.csv("data/ddt.csv")
 
 # pesos de la especie “catfish”
-catfish.weight <- ddt$weight[ddt$species_name == "catfish"]
+catfish.weight  <- ddt$weight[ddt$species_name == "catfish"]
 
 # histograma del peso de los “catfish”
 hist(catfish.weight)
 ```
 
-![](figure/Histograma.png) 
-
+![](figure/Histograma-1.png) 
 
 * Al teclear `ddt$` podemos pulsar la tecla `Tab` para que nos muestre la lista de variables de ddt. Esto se denomina __completado de objetos__. 
 
@@ -417,10 +413,9 @@ hist(catfish.weight)
 
 
 ```r
-# librería necesaria para 'plot'
+# librería necesaria para "plot"
 library(graphics)
 ```
-
 
 * El gráfico más simple es dibujar simplemente los pesos de la especie `catfish`:
 
@@ -430,8 +425,7 @@ library(graphics)
 plot(catfish.weight)
 ```
 
-![](figure/plot_pesos_de_los_catfish.png) 
-
+![](figure/plot pesos de los catfish-1.png) 
 
 * En primer lugar, vamos a añadir color, unas nuevas etiquetas en los ejes (`xlab`, `ylab`) y el título principal (`main`), además de una línea en el eje Y que indica la media de los valores.
 
@@ -443,8 +437,7 @@ plot(catfish.weight, col="blue", xlab="Nº pez", ylab="Peso", main="Pesos de los
 abline(mean(catfish.weight), 0, col="red", lwd=2)
 ```
 
-![](figure/plot_pesos_de_los_catfish___etiquetas.png) 
-
+![](figure/plot pesos de los catfish + etiquetas-1.png) 
 
 * Ahora, podemos dibujar un gráfico que muestre la longitud (`length`) frente al peso (`weight`) de la especie `catfish`.
 
@@ -458,8 +451,7 @@ plot(x=catfish.length, y=catfish.weight, col="blue", xlab="Longitud", ylab="Peso
      main="Longitud vs. Peso de los catfish")
 ```
 
-![](figure/plot_longitud_vs__peso.png) 
-
+![](figure/plot longitud vs. peso-1.png) 
 
 
 # Instalación de paquetes en RStudio
@@ -485,7 +477,6 @@ install.packages("<Nombre_de_la_librería>")
 ```
 
 
-
 # La función `qplot`
 * El comando `qplot`es una versión "_quick_" del comando `plot`, y permite crear gráficos complejos y avanzados de forma simple y rápida.
 * Este comando está en la librería `ggplot2`. Para usar dicha libreria podemos ejecutar el siguiente comando:
@@ -494,7 +485,6 @@ install.packages("<Nombre_de_la_librería>")
 ```r
 library(ggplot2)
 ```
-
 * En caso de que no esté instalada, habria que seguir los pasos descritos en la diapositiva de [Instalación de paquetes en RStudio](RStudio.html#(24)).
 
 * Por ejemplo, podemos hacer un gráfico rápido que permite visualizar la longitud (`length`) frente al peso (`weight`) del conjunto de datos `ddt`. 
@@ -502,21 +492,19 @@ library(ggplot2)
 
 ```r
 # longitud vs. peso de todos los peces
-qplot(length, weight, data = ddt, col = species_name)
+qplot(length, weight, data=ddt, col=species_name)
 ```
 
-![](figure/qplot_longitud_peso_de_ddt.png) 
-
+![](figure/qplot longitud+peso de ddt-1.png) 
 
 * Incluso podemos añadir una línea de tendencia (con un margen de error) a cada especie, simplemente añadiendo (sumando) la función `geom_smooth()`:
 
 
 ```r
-qplot(length, weight, data = ddt, col = species_name) + geom_smooth()
+qplot(length, weight, data=ddt, col=species_name) + geom_smooth()
 ```
 
-![](figure/qplot_longitud_peso_de_ddt___geom_smooth.png) 
-
+![](figure/qplot longitud+peso de ddt + geom_smooth-1.png) 
 
 * Podemos usar las opciones que ya conocemos del comando `plot` para personalizar este gráfico:
 
@@ -526,19 +514,17 @@ qplot(length, weight, data=ddt, col=species_name, xlab="Longitud", ylab="Peso",
       main="Relación longitud/peso") + geom_smooth()
 ```
 
-![](figure/qplot_longitud_peso_de_ddt___geom_smooth___labels.png) 
-
+![](figure/qplot longitud+peso de ddt + geom_smooth + labels-1.png) 
 
 * Finalmente, podemos usar `qplot` para generar también un histograma de los pesos de las tres especies juntas de forma automática:
 
 
 ```r
-# histograma usando 'qplot'
-qplot(weight, data = ddt, fill = species_name)
+# histograma usando "qplot"
+qplot(weight, data=ddt, fill=species_name)
 ```
 
-![](figure/Histograma_usando_qplot.png) 
-
+![](figure/Histograma usando qplot-1.png) 
 
 
 # El comando `manipulate`
@@ -561,7 +547,6 @@ manipulate(
   fish = picker("bass", "buffalo", "catfish")
   )
 ```
-
 <center>
 <img src="figure/manipulate.png" alt="Ejemplo de manipulate"/>
 </center>
@@ -596,15 +581,13 @@ manipulate(
 # Ejercicios
 1. Hacer una función en R que muestre los histogramas de frecuencias de los pesos de las tres especies (`catfish`, `buffalo` y `bass`) en uno solo usando el comando `hist`. (__Pista__: empezar por la especie `catfish` y usar `add=TRUE`).
 
-![](figure/Ejercicio_1.png) 
-
+![](figure/Ejercicio 1-1.png) 
 
 2. Hacer una función que use el comando `manipulate` sobre el comando `qplot`para que el usuario elija la especie sobre la cual quiere comparar la longitud (`length`) contra el peso (`weight`).
 
 <center>
 <img src="figure/Ejercicio_2.png" alt="Ejercicio "/>
 </center>
-
 
 
 
