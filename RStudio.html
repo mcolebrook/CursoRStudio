@@ -10,25 +10,6 @@
   <meta name="date" content="2014-01-01" />
   <title>Curso introductorio de   Introducción a la interfaz RStudio</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <style type="text/css">
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; }
-code > span.dt { color: #902000; }
-code > span.dv { color: #40a070; }
-code > span.bn { color: #40a070; }
-code > span.fl { color: #40a070; }
-code > span.ch { color: #4070a0; }
-code > span.st { color: #4070a0; }
-code > span.co { color: #60a0b0; font-style: italic; }
-code > span.ot { color: #007020; }
-code > span.al { color: #ff0000; font-weight: bold; }
-code > span.fu { color: #06287e; }
-code > span.er { color: #ff0000; font-weight: bold; }
-  </style>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
   <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
@@ -277,7 +258,7 @@ Profesores: </br> Carlos Pérez González </br> Marcos Colebrook Santamaría </b
 <li>Como nombre del fichero, seleccionamos la carpeta <code>data</code>, y ponemos el nombre <code>ddt.csv</code>.</li>
 <li>Terminamos de escribir el comando con el último parámetro, para indicar que no queremos que guarde el nombre (número) de cada fila:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(ddt, <span class="st">&quot;data/ddt.csv&quot;</span>, <span class="dt">row.names=</span><span class="ot">FALSE</span>)</code></pre>
+<p><code>{r write.csv, eval=FALSE} write.csv(ddt, &quot;data/ddt.csv&quot;, row.names=FALSE)</code></p>
 <ul>
 <li>Podemos ver el fichero creado en el directorio <code>data</code>, y haciendo clic sobre él, nos mostrará el contenido:</li>
 </ul>
@@ -340,11 +321,11 @@ Profesores: </br> Carlos Pérez González </br> Marcos Colebrook Santamaría </b
 <li>Las opciones del tipo <strong>Source</strong> sirven para cargar el código fuente al espacio de trabajo de R (lo veremos luego).</li>
 <li>Vamos a introducir los primeros comandos R en el script:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># estructura de los datos</span>
-<span class="kw">str</span>(ddt)
-
-<span class="co"># resumen de los datos</span>
-<span class="kw">summary</span>(ddt)</code></pre>
+<p>```{r funciones, eval=FALSE, results='hide'} # estructura de los datos str(ddt)</p>
+</div>
+<div id="resumen-de-los-datos" class="slide section level1">
+<h1>resumen de los datos</h1>
+<p>summary(ddt) ```</p>
 <ul>
 <li>Guardamos este script pulsando el botón del disco (arriba), o en el menú <strong>File &gt; Save</strong>, con el nombre <code>funciones.R</code> en el directorio <code>R</code> de nuestro proyecto.</li>
 </ul>
@@ -404,8 +385,7 @@ Profesores: </br> Carlos Pérez González </br> Marcos Colebrook Santamaría </b
 <ul>
 <li>Si tecleamos la siguiente línea en la consola de R, nos dará un error:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Resumen</span>(ddt)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): no se pudo encontrar la función &quot;Resumen&quot;</code></pre>
+<p><code>{r Resumen} Resumen(ddt)</code></p>
 <ul>
 <li>Esto sucede porque la función Resumen no ha sido cargada (<em>sourced</em>) al entorno o espacio de trabajo de nuestro proyecto.</li>
 <li>Para poder usar la función <code>Resumen(datos)</code> tenemos que hacer lo siguiente:</li>
@@ -483,17 +463,15 @@ Profesores: </br> Carlos Pérez González </br> Marcos Colebrook Santamaría </b
 <li>La visualización (o dibujado de gráficos) es una parte esencial del análisis de datos. RStudio tiene un panel específico para la visualización de datos (<strong>Plots</strong>) abajo a la derecha.</li>
 <li>Para ilustrar el manejo de las instrucciones de visualización, vamos a usar escribir el siguiente código dentro de nuestro script de R debajo de la función <code>Resumen</code>:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cargamos los datos del fichero</span>
-ddt  &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/ddt.csv&quot;</span>)
-
-<span class="co"># pesos de la especie “catfish”</span>
-catfish.weight  &lt;-<span class="st"> </span>ddt$weight[ddt$species_name ==<span class="st"> &quot;catfish&quot;</span>]
-
-<span class="co"># histograma del peso de los “catfish”</span>
-<span class="kw">hist</span>(catfish.weight)</code></pre>
-<div class="figure">
-<img src="figure/Histograma-1.png" />
+<p>```{r Histograma, results='hide', fig.height=5, fig.width=5, fig.cap=&quot;&quot;} # cargamos los datos del fichero ddt &lt;- read.csv(&quot;data/ddt.csv&quot;)</p>
 </div>
+<div id="pesos-de-la-especie-catfish" class="slide section level1">
+<h1>pesos de la especie “catfish”</h1>
+<p>catfish.weight &lt;- ddt<span class="math"><em>w</em><em>e</em><em>i</em><em>g</em><em>h</em><em>t</em>[<em>d</em><em>d</em><em>t</em></span>species_name == &quot;catfish&quot;]</p>
+</div>
+<div id="histograma-del-peso-de-los-catfish" class="slide section level1">
+<h1>histograma del peso de los “catfish”</h1>
+<p>hist(catfish.weight) ```</p>
 <ul>
 <li>Al teclear <code>ddt$</code> podemos pulsar la tecla <code>Tab</code> para que nos muestre la lista de variables de ddt. Esto se denomina <strong>completado de objetos</strong>.</li>
 </ul>
@@ -519,38 +497,27 @@ catfish.weight  &lt;-<span class="st"> </span>ddt$weight[ddt$species_name ==<spa
 <li>Uno de los comandos más útiles para dibujar gráficos en R es <code>plot</code>.</li>
 <li>La librería que contiene el comando <code>plot</code> es <code>graphics</code>, la cual suele estar cargada por defecto. En caso de no estarlo, habria que ejecutar el siguiente comando:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># librería necesaria para &quot;plot&quot;</span>
-<span class="kw">library</span>(graphics)</code></pre>
+<p><code>{r Libreria graphics, eval=FALSE} # librería necesaria para &quot;plot&quot; library(graphics)</code></p>
 <ul>
 <li>El gráfico más simple es dibujar simplemente los pesos de la especie <code>catfish</code>:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># gráfico de los pesos de todos los catfish</span>
-<span class="kw">plot</span>(catfish.weight)</code></pre>
-<div class="figure">
-<img src="figure/plot%20pesos%20de%20los%20catfish-1.png" />
-</div>
+<p><code>{r plot pesos de los catfish, fig.height=7, fig.width=7, fig.cap=&quot;&quot;} # gráfico de los pesos de todos los catfish plot(catfish.weight)</code></p>
 <ul>
 <li>En primer lugar, vamos a añadir color, unas nuevas etiquetas en los ejes (<code>xlab</code>, <code>ylab</code>) y el título principal (<code>main</code>), además de una línea en el eje Y que indica la media de los valores.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(catfish.weight, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Nº pez&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Peso&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Pesos de los catfish&quot;</span>)
-
-<span class="co"># línea horizontal que marca la media de los pesos</span>
-<span class="kw">abline</span>(<span class="kw">mean</span>(catfish.weight), <span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre>
-<div class="figure">
-<img src="figure/plot%20pesos%20de%20los%20catfish%20+%20etiquetas-1.png" />
+<p>```{r plot pesos de los catfish + etiquetas, fig.height=7, fig.width=7, fig.cap=&quot;&quot;, tidy=FALSE} plot(catfish.weight, col=&quot;blue&quot;, xlab=&quot;Nº pez&quot;, ylab=&quot;Peso&quot;, main=&quot;Pesos de los catfish&quot;)</p>
 </div>
+<div id="línea-horizontal-que-marca-la-media-de-los-pesos" class="slide section level1">
+<h1>línea horizontal que marca la media de los pesos</h1>
+<p>abline(mean(catfish.weight), 0, col=&quot;red&quot;, lwd=2) ```</p>
 <ul>
 <li>Ahora, podemos dibujar un gráfico que muestre la longitud (<code>length</code>) frente al peso (<code>weight</code>) de la especie <code>catfish</code>.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># longitudes de la especie &quot;catfish&quot;</span>
-catfish.length  &lt;-<span class="st"> </span>ddt$length[ddt$species_name ==<span class="st"> &quot;catfish&quot;</span>]
-
-<span class="co"># gráfico de comparación de la longitud vs. peso de los &quot;catfish&quot;</span>
-<span class="kw">plot</span>(<span class="dt">x=</span>catfish.length, <span class="dt">y=</span>catfish.weight, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Longitud&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Peso&quot;</span>, 
-     <span class="dt">main=</span><span class="st">&quot;Longitud vs. Peso de los catfish&quot;</span>)</code></pre>
-<div class="figure">
-<img src="figure/plot%20longitud%20vs.%20peso-1.png" />
+<p>```{r plot longitud vs. peso, fig.height=7, fig.width=7, fig.cap=&quot;&quot;, tidy=FALSE} # longitudes de la especie &quot;catfish&quot; catfish.length &lt;- ddt<span class="math"><em>l</em><em>e</em><em>n</em><em>g</em><em>t</em><em>h</em>[<em>d</em><em>d</em><em>t</em></span>species_name == &quot;catfish&quot;]</p>
 </div>
+<div id="gráfico-de-comparación-de-la-longitud-vs.-peso-de-los-catfish" class="slide section level1">
+<h1>gráfico de comparación de la longitud vs. peso de los &quot;catfish&quot;</h1>
+<p>plot(x=catfish.length, y=catfish.weight, col=&quot;blue&quot;, xlab=&quot;Longitud&quot;, ylab=&quot;Peso&quot;, main=&quot;Longitud vs. Peso de los catfish&quot;) ```</p>
 </div>
 <div id="instalación-de-paquetes-en-rstudio" class="slide section level1">
 <h1>Instalación de paquetes en RStudio</h1>
@@ -573,7 +540,7 @@ catfish.length  &lt;-<span class="st"> </span>ddt$length[ddt$species_name ==<spa
 <ul>
 <li>Se puede conseguir el mismo efecto con el siguiente comando:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;&lt;Nombre_de_la_librería&gt;&quot;</span>)</code></pre>
+<p><code>{r install.packages, eval=FALSE} install.packages(&quot;&lt;Nombre_de_la_librería&gt;&quot;)</code></p>
 </div>
 <div id="la-función-qplot" class="slide section level1">
 <h1>La función <code>qplot</code></h1>
@@ -581,39 +548,23 @@ catfish.length  &lt;-<span class="st"> </span>ddt$length[ddt$species_name ==<spa
 <li>El comando <code>qplot</code>es una versión &quot;<em>quick</em>&quot; del comando <code>plot</code>, y permite crear gráficos complejos y avanzados de forma simple y rápida.</li>
 <li>Este comando está en la librería <code>ggplot2</code>. Para usar dicha libreria podemos ejecutar el siguiente comando:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre>
+<p><code>{r library(ggplot2)} library(ggplot2)</code> * En caso de que no esté instalada, habria que seguir los pasos descritos en la diapositiva de <a href="RStudio.html#(24)">Instalación de paquetes en RStudio</a>.</p>
 <ul>
-<li><p>En caso de que no esté instalada, habria que seguir los pasos descritos en la diapositiva de <a href="RStudio.html#(24)">Instalación de paquetes en RStudio</a>.</p></li>
-<li><p>Por ejemplo, podemos hacer un gráfico rápido que permite visualizar la longitud (<code>length</code>) frente al peso (<code>weight</code>) del conjunto de datos <code>ddt</code>.</p></li>
+<li>Por ejemplo, podemos hacer un gráfico rápido que permite visualizar la longitud (<code>length</code>) frente al peso (<code>weight</code>) del conjunto de datos <code>ddt</code>.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># longitud vs. peso de todos los peces</span>
-<span class="kw">qplot</span>(length, weight, <span class="dt">data=</span>ddt, <span class="dt">col=</span>species_name)</code></pre>
-<div class="figure">
-<img src="figure/qplot%20longitud+peso%20de%20ddt-1.png" />
-</div>
+<p><code>{r qplot longitud+peso de ddt, fig.height=7, fig.width=7, fig.cap=&quot;&quot;} # longitud vs. peso de todos los peces qplot(length, weight, data=ddt, col=species_name)</code></p>
 <ul>
 <li>Incluso podemos añadir una línea de tendencia (con un margen de error) a cada especie, simplemente añadiendo (sumando) la función <code>geom_smooth()</code>:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(length, weight, <span class="dt">data=</span>ddt, <span class="dt">col=</span>species_name) +<span class="st"> </span><span class="kw">geom_smooth</span>()</code></pre>
-<div class="figure">
-<img src="figure/qplot%20longitud+peso%20de%20ddt%20+%20geom_smooth-1.png" />
-</div>
+<p><code>{r qplot longitud+peso de ddt + geom_smooth, fig.height=7, fig.width=7, fig.cap=&quot;&quot;, message=FALSE} qplot(length, weight, data=ddt, col=species_name) + geom_smooth()</code></p>
 <ul>
 <li>Podemos usar las opciones que ya conocemos del comando <code>plot</code> para personalizar este gráfico:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(length, weight, <span class="dt">data=</span>ddt, <span class="dt">col=</span>species_name, <span class="dt">xlab=</span><span class="st">&quot;Longitud&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Peso&quot;</span>,
-      <span class="dt">main=</span><span class="st">&quot;Relación longitud/peso&quot;</span>) +<span class="st"> </span><span class="kw">geom_smooth</span>()</code></pre>
-<div class="figure">
-<img src="figure/qplot%20longitud+peso%20de%20ddt%20+%20geom_smooth%20+%20labels-1.png" />
-</div>
+<p><code>{r qplot longitud+peso de ddt + geom_smooth + labels, fig.height=7, fig.width=7, fig.cap=&quot;&quot;, message=FALSE, tidy=FALSE} qplot(length, weight, data=ddt, col=species_name, xlab=&quot;Longitud&quot;, ylab=&quot;Peso&quot;,       main=&quot;Relación longitud/peso&quot;) + geom_smooth()</code></p>
 <ul>
 <li>Finalmente, podemos usar <code>qplot</code> para generar también un histograma de los pesos de las tres especies juntas de forma automática:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># histograma usando &quot;qplot&quot;</span>
-<span class="kw">qplot</span>(weight, <span class="dt">data=</span>ddt, <span class="dt">fill=</span>species_name)</code></pre>
-<div class="figure">
-<img src="figure/Histograma%20usando%20qplot-1.png" />
-</div>
+<p><code>{r Histograma usando qplot, fig.height=7, fig.width=7, fig.cap=&quot;&quot;, message=FALSE} # histograma usando &quot;qplot&quot; qplot(weight, data=ddt, fill=species_name)</code></p>
 </div>
 <div id="el-comando-manipulate" class="slide section level1">
 <h1>El comando <code>manipulate</code></h1>
@@ -629,13 +580,7 @@ catfish.length  &lt;-<span class="st"> </span>ddt$length[ddt$species_name ==<spa
 </ul></li>
 <li>Vamos a ver un pequeño ejemplo:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># control de selección para elegir la especie de pez</span>
-<span class="kw">library</span>(manipulate)
-<span class="kw">manipulate</span>(
-  <span class="kw">hist</span>(ddt$weight[ddt$species_name ==<span class="st"> </span>fish], <span class="dt">xlab=</span><span class="st">&quot;Peso&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Frecuencia&quot;</span>, 
-       <span class="dt">main=</span><span class="kw">paste</span>(<span class="st">&quot;Histograma del peso de los&quot;</span>, fish)),
-  <span class="dt">fish =</span> <span class="kw">picker</span>(<span class="st">&quot;bass&quot;</span>, <span class="st">&quot;buffalo&quot;</span>, <span class="st">&quot;catfish&quot;</span>)
-  )</code></pre>
+<code>{r manipulate, eval=FALSE, tidy=FALSE} # control de selección para elegir la especie de pez library(manipulate) manipulate(   hist(ddt$weight[ddt$species_name == fish], xlab=&quot;Peso&quot;, ylab=&quot;Frecuencia&quot;,         main=paste(&quot;Histograma del peso de los&quot;, fish)),   fish = picker(&quot;bass&quot;, &quot;buffalo&quot;, &quot;catfish&quot;)   )</code>
 <center>
 <img src="figure/manipulate.png" alt="Ejemplo de manipulate"/>
 </center>
@@ -680,9 +625,7 @@ catfish.length  &lt;-<span class="st"> </span>ddt$length[ddt$species_name ==<spa
 <ol style="list-style-type: decimal">
 <li>Hacer una función en R que muestre los histogramas de frecuencias de los pesos de las tres especies (<code>catfish</code>, <code>buffalo</code> y <code>bass</code>) en uno solo usando el comando <code>hist</code>. (<strong>Pista</strong>: empezar por la especie <code>catfish</code> y usar <code>add=TRUE</code>).</li>
 </ol>
-<div class="figure">
-<img src="figure/Ejercicio%201-1.png" />
-</div>
+<p><code>{r Ejercicio 1, eval=TRUE, echo=FALSE, fig.cap=&quot;&quot;} catfish.weight &lt;- ddt$weight[ddt$species_name == &quot;catfish&quot;] buffalo.weight &lt;- ddt$weight[ddt$species_name == &quot;buffalo&quot;] bass.weight &lt;- ddt$weight[ddt$species_name == &quot;bass&quot;] hist(catfish.weight, col=&quot;cyan&quot;, main=&quot;Histogramas&quot;, xlab=&quot;Pesos&quot;, ylab=&quot;Frecuencias&quot;) hist(buffalo.weight, col=&quot;green&quot;, add=TRUE) hist(bass.weight, col=&quot;red&quot;, add=TRUE) legend(&quot;topright&quot;, levels(ddt$species_name), fill=c(&quot;cyan&quot;,&quot;green&quot;,&quot;red&quot;))</code></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Hacer una función que use el comando <code>manipulate</code> sobre el comando <code>qplot</code>para que el usuario elija la especie sobre la cual quiere comparar la longitud (<code>length</code>) contra el peso (<code>weight</code>).</li>
 </ol>
@@ -690,9 +633,7 @@ catfish.length  &lt;-<span class="st"> </span>ddt$length[ddt$species_name ==<spa
 <img src="figure/Ejercicio_2.png" alt="Ejercicio "/>
 </center>
 
-
-
-
+<p><code>{r Ejercicio 2, eval=FALSE, echo=FALSE, tidy=FALSE} manipulate(   qplot(ddt$length[ddt$species_name == fish], ddt$weight[ddt$species_name == fish],          xlab=&quot;Longitud&quot;, ylab=&quot;Peso&quot;,          main=paste(&quot;Longitud vs. Peso de los&quot;, fish)),   fish = picker(&quot;bass&quot;, &quot;buffalo&quot;, &quot;catfish&quot;)   )</code></p>
 </div>
 <div id="futuro-de-rstudio" class="slide section level1">
 <h1>Futuro de RStudio</h1>
